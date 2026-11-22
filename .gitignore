@@ -1,0 +1,6 @@
+# Video project is kept local only
+barterly-video/
+
+# OS / editor noise
+.DS_Store
+**/.DS_Store

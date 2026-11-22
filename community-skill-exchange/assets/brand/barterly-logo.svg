@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="44 52 424 424" role="img" aria-label="Barterly logo">
+  <defs>
+    <linearGradient id="bl-blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#4cc9ff"/>
+      <stop offset="1" stop-color="#2156e8"/>
+    </linearGradient>
+    <linearGradient id="bl-purple" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e58bff"/>
+      <stop offset="1" stop-color="#7a2cf0"/>
+    </linearGradient>
+    <linearGradient id="bl-arrow-top" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#2a6cf0"/>
+      <stop offset="1" stop-color="#52d0ff"/>
+    </linearGradient>
+    <linearGradient id="bl-arrow-bottom" x1="1" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a3df5"/>
+      <stop offset="1" stop-color="#e08cff"/>
+    </linearGradient>
+    <filter id="bl-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#bl-glow)">
+    <!-- Top arrow (blue, left → right) -->
+    <path d="M118 176 C 150 104, 252 74, 336 98 L 330 116 C 256 98, 168 122, 132 186 Z" fill="url(#bl-arrow-top)"/>
+    <path d="M318 70 L 384 112 L 312 140 Z" fill="#52d0ff"/>
+
+    <!-- Bottom arrow (purple, right → left) -->
+    <path d="M404 330 C 372 404, 268 434, 182 404 L 190 386 C 264 410, 352 390, 388 322 Z" fill="url(#bl-arrow-bottom)"/>
+    <path d="M200 440 L 130 392 L 206 364 Z" fill="#e08cff"/>
+
+    <!-- Left person (blue) -->
+    <circle cx="136" cy="214" r="40" fill="url(#bl-blue)"/>
+    <path d="M60 318 C 58 270, 104 252, 156 266 C 204 279, 244 286, 286 278 C 246 300, 196 300, 162 318 C 128 338, 134 382, 188 420 C 116 410, 62 372, 60 318 Z" fill="url(#bl-blue)"/>
+
+    <!-- Right person (purple) -->
+    <circle cx="378" cy="226" r="40" fill="url(#bl-purple)"/>
+    <path d="M452 330 C 454 282, 408 262, 356 276 C 308 289, 268 292, 226 286 C 266 310, 316 312, 350 330 C 384 350, 378 394, 324 432 C 396 422, 450 384, 452 330 Z" fill="url(#bl-purple)"/>
+
+    <!-- Code tile -->
+    <g transform="rotate(-12 214 178)">
+      <rect x="174" y="138" width="80" height="80" rx="18" fill="#1b1d4d" stroke="#5aa2ff" stroke-width="3"/>
+      <path d="M200 166 L 188 178 L 200 190 M228 166 L 240 178 L 228 190 M220 160 L 208 196" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M250 112 L 254 128 M270 120 L 262 134 M284 140 L 268 144" stroke="#52d0ff" stroke-width="6" stroke-linecap="round"/>
+
+    <!-- Brush tile -->
+    <g transform="rotate(12 290 296)">
+      <rect x="250" y="256" width="80" height="80" rx="18" fill="#3a1670" stroke="#c07cff" stroke-width="3"/>
+      <path d="M302 270 C 308 274, 310 280, 305 286 L 288 306 L 281 300 L 296 278 C 298 272, 300 270, 302 270 Z" fill="#ffffff"/>
+      <path d="M280 302 C 272 304, 268 312, 266 322 C 276 322, 286 316, 288 308 Z" fill="#ffffff"/>
+    </g>
+    <path d="M232 300 L 216 296 M234 314 L 220 322" stroke="#d58cff" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>

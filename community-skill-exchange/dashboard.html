@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your Barterly dashboard: matches, swap requests, messages, sessions and time credits.">
+    <meta name="theme-color" content="#f4efe6">
+    <title>Dashboard — Barterly</title>
+
+    <script src="./js/core/theme-init.js"></script>
+    <link rel="icon" type="image/svg+xml" href="./assets/brand/barterly-logo.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/brand/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/motion.css">
+    <link rel="stylesheet" href="./css/pages/dashboard.css">
+</head>
+
+<body class="app-body">
+    <script src="./js/core/icons.js"></script>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <div class="curtain" data-curtain aria-hidden="true">
+        <div class="curtain-inner">
+            <span class="preloader-mark"><img src="./assets/brand/barterly-logo.svg" alt="" width="72" height="72"></span>
+            <span class="curtain-label" data-curtain-label>Barterly</span>
+        </div>
+    </div>
+
+    <div class="app" data-app>
+        <!-- ================= Sidebar ================= -->
+        <aside class="sidebar" id="sidebar" data-sidebar aria-label="Dashboard navigation">
+            <div class="sidebar-head">
+                <a class="brand" href="./index.html" aria-label="Barterly home">
+                    <span class="brand-mark" aria-hidden="true"><img src="./assets/brand/barterly-logo.svg" alt="" width="40" height="40"></span>
+                    <span class="brand-name">Barter<em class="serif">ly</em></span>
+                </a>
+                <button class="icon-button sidebar-close" type="button" aria-label="Close menu" data-sidebar-close>
+                    <svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>
+                </button>
+            </div>
+
+            <nav class="side-nav">
+                <p class="side-label">Workspace</p>
+                <a class="side-link" href="#overview" data-view-link="overview"><svg class="icon" aria-hidden="true"><use href="#i-dashboard"></use></svg><span>Overview</span></a>
+                <a class="side-link" href="#discover" data-view-link="discover"><svg class="icon" aria-hidden="true"><use href="#i-compass"></use></svg><span>Discover</span></a>
+                <a class="side-link" href="#requests" data-view-link="requests"><svg class="icon" aria-hidden="true"><use href="#i-inbox"></use></svg><span>Requests</span><b class="side-badge" data-badge="requests" hidden></b></a>
+                <a class="side-link" href="#messages" data-view-link="messages"><svg class="icon" aria-hidden="true"><use href="#i-message"></use></svg><span>Messages</span><b class="side-badge" data-badge="messages" hidden></b></a>
+                <a class="side-link" href="#sessions" data-view-link="sessions"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg><span>Sessions</span></a>
+                <p class="side-label">You</p>
+                <a class="side-link" href="#wallet" data-view-link="wallet"><svg class="icon" aria-hidden="true"><use href="#i-wallet"></use></svg><span>Wallet</span></a>
+                <a class="side-link" href="#profile" data-view-link="profile"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg><span>Profile</span></a>
+            </nav>
+
+            <a class="side-credit" href="#wallet" data-side-credit>
+                <span class="side-credit-label">Time credits</span>
+                <strong><span data-credit-value>0</span><small>h</small></strong>
+                <span class="side-credit-sub">1 hour taught = 1 hour learned</span>
+                <span class="side-credit-sticker" aria-hidden="true">₹0</span>
+            </a>
+
+            <div class="side-user">
+                <span class="user-avatar" data-user-avatar></span>
+                <div><strong data-user-name></strong><span data-user-sub></span></div>
+                <button class="icon-button" type="button" aria-label="Sign out" data-sign-out>
+                    <svg class="icon" aria-hidden="true"><use href="#i-log-out"></use></svg>
+                </button>
+            </div>
+        </aside>
+        <div class="sidebar-scrim" data-sidebar-close aria-hidden="true"></div>
+
+        <!-- ================= Main ================= -->
+        <div class="app-main">
+            <header class="topbar">
+                <button class="icon-button topbar-menu" type="button" aria-label="Open menu" aria-controls="sidebar" data-sidebar-open>
+                    <svg class="icon" aria-hidden="true"><use href="#i-menu"></use></svg>
+                </button>
+                <div class="topbar-title">
+                    <p class="topbar-kicker" data-view-kicker>(01) — Dashboard</p>
+                    <h1 data-view-title>Overview</h1>
+                </div>
+
+                <button class="search-trigger" type="button" data-palette-open aria-label="Search people, skills and actions">
+                    <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+                    <span>Search people, skills, actions…</span>
+                    <kbd data-kbd>⌘K</kbd>
+                </button>
+
+                <div class="topbar-actions">
+                    <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+                        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+                        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+                    </button>
+                    <button class="icon-button bell" type="button" aria-label="Notifications" data-notif-open>
+                        <svg class="icon" aria-hidden="true"><use href="#i-bell"></use></svg>
+                        <span class="bell-dot" data-bell-dot hidden></span>
+                    </button>
+                    <a class="btn btn-ink btn-sm topbar-site" href="./index.html">
+                        <span class="btn-roll" data-text="Website">Website</span>
+                    </a>
+                </div>
+            </header>
+
+            <main class="view-host" id="main-content" data-view-host tabindex="-1" aria-live="polite"></main>
+        </div>
+
+        <!-- Mobile bottom navigation -->
+        <nav class="bottom-nav" aria-label="Dashboard sections">
+            <a href="#overview" data-view-link="overview"><svg class="icon" aria-hidden="true"><use href="#i-dashboard"></use></svg><span>Home</span></a>
+            <a href="#discover" data-view-link="discover"><svg class="icon" aria-hidden="true"><use href="#i-compass"></use></svg><span>Discover</span></a>
+            <a href="#requests" data-view-link="requests"><svg class="icon" aria-hidden="true"><use href="#i-inbox"></use></svg><span>Requests</span><b class="side-badge" data-badge="requests" hidden></b></a>
+            <a href="#messages" data-view-link="messages"><svg class="icon" aria-hidden="true"><use href="#i-message"></use></svg><span>Chats</span><b class="side-badge" data-badge="messages" hidden></b></a>
+            <a href="#sessions" data-view-link="sessions"><svg class="icon" aria-hidden="true"><use href="#i-calendar"></use></svg><span>Sessions</span></a>
+        </nav>
+    </div>
+
+    <!-- Right drawer (notifications, member profiles) -->
+    <div class="drawer-scrim" data-drawer-scrim hidden></div>
+    <aside class="drawer" data-drawer aria-hidden="true" tabindex="-1">
+        <button class="icon-button drawer-close" type="button" aria-label="Close panel" data-drawer-close>
+            <svg class="icon" aria-hidden="true"><use href="#i-x"></use></svg>
+        </button>
+        <div class="drawer-body" data-drawer-body></div>
+    </aside>
+
+    <!-- Command palette -->
+    <div class="palette" data-palette hidden>
+        <div class="palette-box" role="dialog" aria-modal="true" aria-label="Command palette">
+            <div class="palette-input">
+                <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+                <input type="text" placeholder="Jump to a page, person, skill or action…" aria-label="Search" data-palette-input
+                    role="combobox" aria-expanded="true" aria-controls="palette-list" autocomplete="off">
+                <kbd>Esc</kbd>
+            </div>
+            <ul class="palette-list" id="palette-list" role="listbox" data-palette-list></ul>
+            <p class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>Esc</kbd> close</span></p>
+        </div>
+    </div>
+
+    <script src="./js/vendor/gsap.min.js"></script>
+    <script src="./js/core/storage.js"></script>
+    <script src="./js/core/utils.js"></script>
+    <script src="./js/core/auth.js"></script>
+    <script src="./js/core/api.js"></script>
+    <script src="./js/core/motion.js"></script>
+    <script src="./js/core/app.js"></script>
+    <script src="./js/pages/dashboard.js"></script>
+</body>
+
+</html>

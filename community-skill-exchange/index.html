@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Barterly is a campus skill exchange: teach what you know, learn what you love, and grow together — made at LPU.">
+    <meta name="theme-color" content="#f4efe6">
+    <title>Barterly — Teach what you know. Learn what you love.</title>
+
+    <!-- Saved theme + accent applied before first paint -->
+    <script src="./js/core/theme-init.js"></script>
+    <link rel="icon" type="image/svg+xml" href="./assets/brand/barterly-logo.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/brand/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/motion.css">
+    <link rel="stylesheet" href="./css/pages/landing.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+
+<body class="landing" data-smooth>
+    <script src="./js/core/icons.js"></script>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <!-- ===== Global motion layers ===== -->
+    <div class="grain" aria-hidden="true"></div>
+    <div class="scroll-progress" data-scroll-progress aria-hidden="true"><span></span></div>
+
+    <div class="preloader" data-preloader aria-hidden="true">
+        <div class="preloader-inner">
+            <span class="preloader-mark"><img src="./assets/brand/barterly-logo.svg" alt="" width="72" height="72"></span>
+            <div class="preloader-word"><span>Barter</span><em class="serif">ly</em></div>
+            <div class="preloader-count"><span data-preloader-count>0</span><small>%</small></div>
+        </div>
+        <div class="preloader-bar"><span data-preloader-bar></span></div>
+    </div>
+
+    <div class="curtain" data-curtain aria-hidden="true">
+        <div class="curtain-inner">
+            <span class="preloader-mark"><img src="./assets/brand/barterly-logo.svg" alt="" width="72" height="72"></span>
+            <span class="curtain-label" data-curtain-label>Barterly</span>
+        </div>
+    </div>
+
+    <div class="cursor" data-cursor-root aria-hidden="true">
+        <span class="cursor-dot"></span>
+        <span class="cursor-ring"><span class="cursor-label"></span></span>
+    </div>
+
+    <!-- ================= Header ================= -->
+    <header class="site-header" data-header>
+        <div class="header-inner">
+            <a class="brand" href="./index.html" aria-label="Barterly home">
+                <span class="brand-mark" aria-hidden="true"><img src="./assets/brand/barterly-logo.svg" alt="" width="40" height="40"></span>
+                <span class="brand-name">Barter<em class="serif">ly</em></span>
+            </a>
+
+            <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+                <ul class="nav-list" data-nav-list>
+                    <li><a class="nav-link" href="#how-it-works"><span class="nav-num">01</span>How it works</a></li>
+                    <li><a class="nav-link" href="#exchange-formats"><span class="nav-num">02</span>Formats</a></li>
+                    <li><a class="nav-link" href="#skill-categories"><span class="nav-num">03</span>Skills</a></li>
+                    <li><a class="nav-link" href="#campus"><span class="nav-num">04</span>Campus</a></li>
+                    <li><a class="nav-link" href="#stories"><span class="nav-num">05</span>Stories</a></li>
+                    <li><a class="nav-link" href="#faq"><span class="nav-num">06</span>FAQ</a></li>
+                    <li class="nav-indicator" aria-hidden="true" data-nav-indicator></li>
+                </ul>
+                <div class="nav-mobile-footer" data-auth="guest">
+                    <a class="btn btn-line" href="./signin.html">Log in</a>
+                    <a class="btn btn-ink" href="./signup.html">Join free</a>
+                </div>
+                <p class="nav-mobile-note">Made at LPU, Phagwara · <span class="serif">2026</span></p>
+            </nav>
+
+            <div class="header-actions">
+                <div class="theme-picker" data-theme-picker>
+                    <button class="icon-button" type="button" aria-label="Appearance settings" aria-haspopup="true"
+                        aria-expanded="false" aria-controls="theme-popover" data-theme-picker-button>
+                        <svg class="icon" aria-hidden="true"><use href="#i-palette"></use></svg>
+                    </button>
+                    <div class="theme-popover" id="theme-popover" role="dialog" aria-label="Appearance">
+                        <div class="theme-popover-group">
+                            <span class="theme-popover-label" id="theme-mode-label">Theme</span>
+                            <div class="segmented" role="group" aria-labelledby="theme-mode-label">
+                                <button type="button" data-theme-option="light" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-sun"></use></svg>Light</button>
+                                <button type="button" data-theme-option="dark" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-moon"></use></svg>Dark</button>
+                                <button type="button" data-theme-option="system" aria-pressed="false"><svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg>System</button>
+                            </div>
+                        </div>
+                        <div class="theme-popover-group">
+                            <span class="theme-popover-label" id="accent-label">Accent colour</span>
+                            <div class="swatches" role="group" aria-labelledby="accent-label">
+                                <button class="swatch swatch-brand" type="button" style="--swatch:#6a45f5" data-accent-option="barterly" aria-label="Barterly (logo colours)" aria-pressed="false"></button>
+                                <button class="swatch" type="button" style="--swatch:#e4572e" data-accent-option="saffron" aria-label="Saffron" aria-pressed="false"></button>
+                                <button class="swatch" type="button" style="--swatch:#4f46e5" data-accent-option="indigo" aria-label="Indigo" aria-pressed="false"></button>
+                                <button class="swatch" type="button" style="--swatch:#0b7bc4" data-accent-option="ocean" aria-label="Ocean" aria-pressed="false"></button>
+                                <button class="swatch" type="button" style="--swatch:#11875d" data-accent-option="emerald" aria-label="Emerald" aria-pressed="false"></button>
+                                <button class="swatch" type="button" style="--swatch:#7445e0" data-accent-option="violet" aria-label="Violet" aria-pressed="false"></button>
+                                <button class="swatch" type="button" style="--swatch:#d6336c" data-accent-option="rose" aria-label="Rose" aria-pressed="false"></button>
+                                <button class="swatch" type="button" style="--swatch:#c98a00" data-accent-option="amber" aria-label="Amber" aria-pressed="false"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+                    <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+                    <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+                </button>
+
+                <a class="header-login" href="./signin.html" data-auth="guest">Log in</a>
+                <a class="btn btn-ink btn-sm header-join" href="./signup.html" data-auth="guest" data-magnetic="0.25">
+                    <span class="btn-roll" data-text="Join free">Join free</span>
+                </a>
+
+                <div class="user-menu" data-user-menu data-auth="user" hidden>
+                    <button class="user-menu-button" type="button" aria-haspopup="true" aria-expanded="false" data-user-menu-button>
+                        <span class="user-avatar" data-user-avatar></span>
+                        <span class="user-menu-name" data-user-first></span>
+                        <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
+                    </button>
+                    <div class="user-menu-panel">
+                        <div class="user-menu-head">
+                            <span class="user-avatar user-avatar-lg" data-user-avatar></span>
+                            <div><strong data-user-name></strong><span data-user-sub></span></div>
+                        </div>
+                        <a class="user-menu-item" href="./dashboard.html"><svg class="icon" aria-hidden="true"><use href="#i-dashboard"></use></svg> Dashboard</a>
+                        <button class="user-menu-item" type="button" data-sign-out><svg class="icon" aria-hidden="true"><use href="#i-log-out"></use></svg> Sign out</button>
+                    </div>
+                </div>
+
+                <button class="burger" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Open menu" data-nav-toggle>
+                    <span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+
+        <!-- ================= 01 · Hero (layered parallax) ================= -->
+        <section class="hero" id="home" aria-labelledby="hero-title" data-hero>
+            <div class="hero-spot" aria-hidden="true" data-spotlight></div>
+
+            <div class="container hero-meta-row" data-hero-fade>
+                <span class="hero-meta"><span class="live-dot" aria-hidden="true"></span>Made at LPU, Phagwara</span>
+                <span class="hero-meta">(01) — Peer-to-peer learning, <em class="serif">since 2026</em></span>
+            </div>
+
+            <div class="container hero-stage">
+                <h1 class="hero-title" id="hero-title">
+                    <span class="line"><span class="line-i">Teach what</span></span>
+                    <span class="line"><span class="line-i">you know<span class="accent-dot">.</span></span></span>
+                    <span class="line"><span class="line-i">Learn what you
+                            <em class="serif hero-love">love<svg class="scribble" viewBox="0 0 220 34" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4 22 C 46 6, 96 30, 146 15 S 204 8, 216 20"/></svg></em>.</span></span>
+                </h1>
+
+                <div class="hero-collage" data-collage>
+                    <figure class="polaroid polaroid-1" data-depth="0.5" data-speed="-12">
+                        <span class="tape" aria-hidden="true"></span>
+                        <img src="./assets/images/hero-main.jpg" width="1100" height="900" fetchpriority="high"
+                            alt="A group of college students laughing together around a study table">
+                        <figcaption>Saturday study circle</figcaption>
+                    </figure>
+                    <figure class="polaroid polaroid-2" data-depth="1.1" data-speed="-28">
+                        <span class="tape tape-blue" aria-hidden="true"></span>
+                        <img src="./assets/images/hero-secondary.jpg" width="600" height="460"
+                            alt="Four college friends smiling together beside a brick wall">
+                        <figcaption>Python ⇄ Guitar</figcaption>
+                    </figure>
+                    <figure class="polaroid polaroid-3" data-depth="0.8" data-speed="-20">
+                        <img src="./assets/images/lpu-admission-block.jpg" width="980" height="654"
+                            alt="The red-brick Admission Block at Lovely Professional University">
+                        <figcaption>Meet at the Uni Mall, 4 pm</figcaption>
+                    </figure>
+
+                    <div class="sticker sticker-yellow" data-depth="1.6" aria-hidden="true">₹0<small>to join</small></div>
+                    <div class="sticker sticker-pink" data-depth="2" aria-hidden="true">made at<strong>LPU</strong></div>
+
+                    <div class="rotate-badge" data-depth="1.3" data-rotate aria-hidden="true">
+                        <svg viewBox="0 0 120 120">
+                            <defs><path id="badge-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+                            <text><textPath href="#badge-circle" textLength="286" lengthAdjust="spacing">LEARN • TEACH • GROW • REPEAT •</textPath></text>
+                        </svg>
+                        <span class="rotate-badge-mark"><img src="./assets/brand/barterly-logo.svg" alt="" width="64" height="64"></span>
+                    </div>
+
+                    <svg class="doodle doodle-arrow" viewBox="0 0 120 90" aria-hidden="true">
+                        <path pathLength="1" d="M8 12 C 50 4, 96 26, 92 74"/>
+                        <path pathLength="1" d="M78 62 L 92 76 L 104 58"/>
+                    </svg>
+                    <span class="doodle-note" aria-hidden="true">real students,<br>real swaps</span>
+                </div>
+            </div>
+
+            <div class="container hero-bottom">
+                <p class="hero-lede" data-hero-fade>
+                    Barterly is a campus skill exchange. Trade an hour of what you know for an hour of what you
+                    don’t — no fees, no gatekeeping, just people helping people.
+                </p>
+                <div class="hero-cta" data-hero-fade>
+                    <a class="btn btn-ink btn-lg" href="./signup.html" data-magnetic="0.3" data-auth="guest">
+                        <span class="btn-roll" data-text="Join Barterly">Join Barterly</span>
+                        <span class="btn-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span>
+                    </a>
+                    <a class="btn btn-ink btn-lg" href="./dashboard.html" data-magnetic="0.3" data-auth="user" hidden>
+                        <span class="btn-roll" data-text="Open dashboard">Open dashboard</span>
+                        <span class="btn-arrow"><svg class="icon" aria-hidden="true"><use href="#i-dashboard"></use></svg></span>
+                    </a>
+                    <a class="btn btn-line btn-lg" href="#how-it-works">
+                        <span class="btn-roll" data-text="How it works">How it works</span>
+                    </a>
+                </div>
+                <a class="scroll-cue" href="#why-exchange" data-hero-fade><span>Scroll</span><i aria-hidden="true"></i></a>
+            </div>
+        </section>
+
+        <!-- ================= Big marquee (velocity reactive) ================= -->
+        <section class="big-marquee" aria-label="Skills students swap on Barterly">
+            <div class="bm-row" data-marquee="1">
+                <div class="bm-track">
+                    <span>Python</span><i>✺</i><span class="serif">Guitar</span><i>✺</i><span>Spoken English</span><i>✺</i>
+                    <span class="serif">UI/UX</span><i>✺</i><span>Bhangra</span><i>✺</i><span class="serif">Excel</span><i>✺</i>
+                    <span>Photography</span><i>✺</i><span class="serif">Chess</span><i>✺</i>
+                </div>
+            </div>
+            <div class="bm-row bm-row-chips" data-marquee="-1" aria-hidden="true">
+                <div class="bm-track">
+                    <span class="bm-chip"><img src="./assets/avatars/ravi.jpg" alt="">Ravi teaches DSA</span>
+                    <span class="bm-chip"><img src="./assets/avatars/ananya.jpg" alt="">Ananya teaches Figma</span>
+                    <span class="bm-chip"><img src="./assets/avatars/kabir.jpg" alt="">Kabir wants Guitar</span>
+                    <span class="bm-chip"><img src="./assets/avatars/meera.jpg" alt="">Meera teaches Cooking</span>
+                    <span class="bm-chip"><img src="./assets/avatars/ishaan.jpg" alt="">Ishaan wants Public speaking</span>
+                    <span class="bm-chip"><img src="./assets/avatars/diya.jpg" alt="">Diya teaches French</span>
+                    <span class="bm-chip"><img src="./assets/avatars/simran.jpg" alt="">Simran teaches Photography</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 02 · Manifesto (word-by-word scroll text) ================= -->
+        <section class="manifesto section" id="why-exchange" aria-labelledby="manifesto-title">
+            <div class="container">
+                <p class="section-index">(02) — The idea</p>
+                <h2 class="sr-only" id="manifesto-title">The idea behind Barterly</h2>
+                <p class="manifesto-text" data-manifesto>
+                    Everyone on campus knows something worth sharing. The coder
+                    <span class="inline-pic" data-no-split><img src="./assets/avatars/ravi.jpg" alt=""></span>
+                    who wants to learn photography. The photographer
+                    <span class="inline-pic" data-no-split><img src="./assets/avatars/simran.jpg" alt=""></span>
+                    who needs a website. <em class="serif">Barterly</em> — the old idea of barter, rebuilt for skills — connects
+                    them, so an hour of what you know buys an hour of what you don’t.
+                </p>
+
+                <ol class="values" role="list">
+                    <li class="value" data-fade-up>
+                        <span class="value-n">01</span>
+                        <h3>Knowledge has value</h3>
+                        <p>Your notes, hacks and hobbies can be someone else’s breakthrough.</p>
+                    </li>
+                    <li class="value" data-fade-up>
+                        <span class="value-n">02</span>
+                        <h3>Everyone can contribute</h3>
+                        <p>You don’t need to be an expert in everything to teach something useful.</p>
+                    </li>
+                    <li class="value" data-fade-up>
+                        <span class="value-n">03</span>
+                        <h3>Growth is reciprocal</h3>
+                        <p>Every exchange moves two people forward, not one.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ================= 03 · Exchange model (pinned scene) ================= -->
+        <section class="exchange" id="exchange-model" aria-labelledby="exchange-title">
+            <div class="exchange-pin" data-exchange>
+                <div class="container exchange-head">
+                    <p class="section-index">(03) — The exchange model</p>
+                    <h2 class="section-title" id="exchange-title" data-split>Not just learning. <em class="serif">Learning together.</em></h2>
+                </div>
+
+                <div class="container exchange-stage">
+                    <article class="ex-card" data-ex-a>
+                        <img src="./assets/avatars/aarav.jpg" alt="Portrait of Aarav" width="200" height="200" loading="lazy">
+                        <div>
+                            <h3>Aarav</h3>
+                            <p class="ex-role">B.Des · Graphic designer</p>
+                        </div>
+                        <ul class="ex-skills" role="list">
+                            <li class="ex-offer ex-lane-a-from" data-lane-a-from>Offers <strong>Graphic design</strong></li>
+                            <li class="ex-want ex-lane-b-to" data-lane-b-to>Wants <strong>Video editing</strong></li>
+                        </ul>
+                    </article>
+
+                    <div class="ex-bridge" data-ex-bridge aria-hidden="true">
+                        <!-- Paths, arrowheads and travelling skill tokens are generated by landing.js
+                             so they always connect exactly to the two cards -->
+                        <svg class="ex-svg" xmlns="http://www.w3.org/2000/svg"></svg>
+                        <div class="ex-hub" data-ex-center>
+                            <span class="ex-hub-ring"></span>
+                            <img src="./assets/brand/barterly-logo.svg" alt="" width="64" height="64">
+                        </div>
+                        <span class="ex-hub-caption">Matched on <em class="serif">Barterly</em></span>
+                    </div>
+
+                    <article class="ex-card" data-ex-b>
+                        <img src="./assets/avatars/priya.jpg" alt="Portrait of Priya" width="200" height="200" loading="lazy">
+                        <div>
+                            <h3>Priya</h3>
+                            <p class="ex-role">MBA · Video editor</p>
+                        </div>
+                        <ul class="ex-skills" role="list">
+                            <li class="ex-offer ex-lane-b-from" data-lane-b-from>Offers <strong>Video editing</strong></li>
+                            <li class="ex-want ex-lane-a-to" data-lane-a-to>Wants <strong>Graphic design</strong></li>
+                        </ul>
+                    </article>
+                </div>
+
+                <p class="container ex-outcome" data-ex-outcome>
+                    <strong>Both win.</strong> Aarav learns video editing, Priya learns graphic design —
+                    <em class="serif">and nobody pays a rupee.</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= 04 · How it works (horizontal scroll) ================= -->
+        <section class="how" id="how-it-works" aria-labelledby="how-title">
+            <div class="how-pin" data-how>
+                <div class="container how-head">
+                    <div>
+                        <p class="section-index">(04) — A simple process</p>
+                        <h2 class="section-title" id="how-title" data-split>Four steps. <em class="serif">Zero fees.</em></h2>
+                    </div>
+                    <div class="how-progress" aria-hidden="true">
+                        <span class="how-count"><span data-how-current>01</span> / 04</span>
+                        <span class="how-progress-bar"><i data-how-bar></i></span>
+                    </div>
+                </div>
+
+                <div class="how-viewport">
+                    <ol class="how-track" role="list" data-how-track>
+                        <li class="how-panel">
+                            <span class="how-num" aria-hidden="true">01</span>
+                            <figure class="how-media"><img src="./assets/images/benefit-sharers.jpg" alt="A student smiling with his laptop on campus steps" width="900" height="560" loading="lazy"></figure>
+                            <div class="how-copy">
+                                <h3>Create your profile</h3>
+                                <p>Add what you can teach, what you want to learn and when you’re free. Takes about three minutes.</p>
+                                <span class="how-caption">Start with what you know</span>
+                            </div>
+                        </li>
+                        <li class="how-panel">
+                            <span class="how-num" aria-hidden="true">02</span>
+                            <figure class="how-media"><img src="./assets/images/format-group.jpg" alt="Students taking notes together around a table" width="900" height="700" loading="lazy"></figure>
+                            <div class="how-copy">
+                                <h3>Discover your match</h3>
+                                <p>We pair you with people whose skills complement yours — often someone in your own block.</p>
+                                <span class="how-caption">Find your learning partner</span>
+                            </div>
+                        </li>
+                        <li class="how-panel">
+                            <span class="how-num" aria-hidden="true">03</span>
+                            <figure class="how-media"><img src="./assets/images/format-online.jpg" alt="A student in an online session wearing headphones" width="900" height="700" loading="lazy"></figure>
+                            <div class="how-copy">
+                                <h3>Connect &amp; plan</h3>
+                                <p>Chat, agree on goals and pick a format — library table, video call or a weekend project.</p>
+                                <span class="how-caption">Make a plan together</span>
+                            </div>
+                        </li>
+                        <li class="how-panel">
+                            <span class="how-num" aria-hidden="true">04</span>
+                            <figure class="how-media"><img src="./assets/images/format-project.jpg" alt="Two students excitedly working on a laptop" width="900" height="700" loading="lazy"></figure>
+                            <div class="how-copy">
+                                <h3>Exchange &amp; grow</h3>
+                                <p>Teach, learn, give feedback and build a reputation people trust.</p>
+                                <span class="how-caption">Turn knowledge into progress</span>
+                            </div>
+                        </li>
+                        <li class="how-panel how-panel-note">
+                            <p class="how-note-kicker">No perfect match?</p>
+                            <p class="how-note-text">Join a <em class="serif">group session</em>, learn from a community mentor or use time-credits.</p>
+                            <a class="btn btn-ink" href="./signup.html" data-magnetic="0.3"><span class="btn-roll" data-text="Start now">Start now</span>
+                                <span class="btn-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 05 · Formats (sticky storytelling + mask reveal) ================= -->
+        <section class="formats section" id="exchange-formats" aria-labelledby="formats-title">
+            <div class="container formats-grid">
+                <div class="formats-sticky">
+                    <div class="formats-frame" data-fmt-frame>
+                        <img class="fmt-img is-active" src="./assets/images/format-one-to-one.jpg" alt="Two students going through a book together" width="900" height="700" loading="lazy">
+                        <img class="fmt-img" src="./assets/images/format-group.jpg" alt="A small group taking notes together" width="900" height="700" loading="lazy">
+                        <img class="fmt-img" src="./assets/images/format-online.jpg" alt="A student attending an online session" width="900" height="700" loading="lazy">
+                        <img class="fmt-img" src="./assets/images/format-project.jpg" alt="Two students working on a project" width="900" height="700" loading="lazy">
+                        <span class="fmt-badge" data-fmt-badge>One-to-one</span>
+                        <span class="fmt-count" aria-hidden="true"><span data-fmt-count>1</span>/4</span>
+                    </div>
+                </div>
+
+                <div class="formats-steps">
+                    <header class="formats-head">
+                        <p class="section-index">(05) — Flexible by design</p>
+                        <h2 class="section-title" id="formats-title" data-split>Your learning. <em class="serif">Your way.</em></h2>
+                    </header>
+
+                    <article class="fmt-step is-active" data-fmt-step="0" data-label="One-to-one">
+                        <span class="fmt-k"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg> One-to-one</span>
+                        <h3>Focused, personal guidance.</h3>
+                        <p>Learn directly from another member at your pace. Perfect for coding doubts, interview prep or getting your first guitar chords right.</p>
+                    </article>
+                    <article class="fmt-step" data-fmt-step="1" data-label="Small group">
+                        <span class="fmt-k"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg> Small group</span>
+                        <h3>Ideas bounce better together.</h3>
+                        <p>Three to six learners, one shared goal. Practise spoken English, crack aptitude sets or jam as a band.</p>
+                    </article>
+                    <article class="fmt-step" data-fmt-step="2" data-label="Online or in person">
+                        <span class="fmt-k"><svg class="icon" aria-hidden="true"><use href="#i-video"></use></svg> Online or in person</span>
+                        <h3>From your hostel room or the library.</h3>
+                        <p>Video call from anywhere, or meet at a spot on campus. You choose what feels comfortable.</p>
+                    </article>
+                    <article class="fmt-step" data-fmt-step="3" data-label="Project-based">
+                        <span class="fmt-k"><svg class="icon" aria-hidden="true"><use href="#i-folder"></use></svg> Project-based</span>
+                        <h3>Learn by building something real.</h3>
+                        <p>Pair up on a hackathon entry, a portfolio site or a short film — and learn the skills along the way.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 06 · Categories (hover list + cursor image preview) ================= -->
+        <section class="cats section" id="skill-categories" aria-labelledby="categories-title">
+            <div class="container">
+                <div class="cats-head">
+                    <div>
+                        <p class="section-index">(06) — Explore possibilities</p>
+                        <h2 class="section-title" id="categories-title" data-split>A skill for every <em class="serif">curious mind.</em></h2>
+                    </div>
+                    <form class="cat-search" role="search" data-cat-search>
+                        <label class="sr-only" for="cat-search-input">Search for a skill</label>
+                        <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+                        <input id="cat-search-input" type="search" placeholder="Search a skill — try “guitar”" autocomplete="off" aria-describedby="cat-search-status">
+                        <button type="submit" class="cat-search-go" aria-label="Search"><svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></button>
+                    </form>
+                </div>
+                <p class="cat-status" id="cat-search-status" role="status" aria-live="polite"></p>
+
+                <ul class="cat-list" role="list" data-cat-list>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-tech)" data-preview="./assets/images/cat-technology.jpg" data-cursor="Explore"
+                            data-keywords="technology programming coding code ai data web development developer javascript python java dsa app software computer">
+                            <span class="cat-n">01</span><span class="cat-name">Technology</span><span class="cat-desc">Programming, AI, data, web</span>
+                            <span class="cat-thumb"><img src="./assets/images/cat-technology.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-design)" data-preview="./assets/images/cat-design.jpg" data-cursor="Explore"
+                            data-keywords="design creativity creative graphic photography photo video editing drawing art illustration ui ux figma canva">
+                            <span class="cat-n">02</span><span class="cat-name">Design &amp; <em class="serif">Creativity</em></span><span class="cat-desc">Graphic design, photography, video</span>
+                            <span class="cat-thumb"><img src="./assets/images/cat-design.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-language)" data-preview="./assets/images/cat-languages.jpg" data-cursor="Explore"
+                            data-keywords="languages language spanish english french german hindi punjabi japanese korean speaking writing communication">
+                            <span class="cat-n">03</span><span class="cat-name">Languages</span><span class="cat-desc">Speaking, writing, communication</span>
+                            <span class="cat-thumb"><img src="./assets/images/cat-languages.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-business)" data-preview="./assets/images/cat-business.jpg" data-cursor="Explore"
+                            data-keywords="business entrepreneurship startup marketing finance sales management excel stock">
+                            <span class="cat-n">04</span><span class="cat-name">Business</span><span class="cat-desc">Entrepreneurship, marketing, finance</span>
+                            <span class="cat-thumb"><img src="./assets/images/cat-business.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-academic)" data-preview="./assets/images/cat-academics.jpg" data-cursor="Explore"
+                            data-keywords="academics academic mathematics maths math science physics chemistry biology study exam aptitude">
+                            <span class="cat-n">05</span><span class="cat-name">Academics</span><span class="cat-desc">Maths, science, exam prep</span>
+                            <span class="cat-thumb"><img src="./assets/images/cat-academics.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-music)" data-preview="./assets/images/lpu-student-band.jpg" data-cursor="Explore"
+                            data-keywords="music performance guitar piano keyboard singing vocals drums tabla instrument public speaking dance bhangra">
+                            <span class="cat-n">06</span><span class="cat-name">Music &amp; <em class="serif">Stage</em></span><span class="cat-desc">Instruments, singing, public speaking</span>
+                            <span class="cat-thumb"><img src="./assets/images/lpu-student-band.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-lifestyle)" data-preview="./assets/images/cat-lifestyle.jpg" data-cursor="Explore"
+                            data-keywords="lifestyle cooking baking fitness yoga gardening crafts health wellness sports cricket">
+                            <span class="cat-n">07</span><span class="cat-name">Lifestyle</span><span class="cat-desc">Cooking, fitness, yoga, crafts</span>
+                            <span class="cat-thumb"><img src="./assets/images/cat-lifestyle.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                    <li><a class="cat-row" href="./signup.html" style="--cat: var(--cat-more)" data-preview="./assets/images/cat-more.jpg" data-cursor="Add yours" data-category-fallback
+                            data-keywords="more other anything">
+                            <span class="cat-n">08</span><span class="cat-name">And much <em class="serif">more</em></span><span class="cat-desc">Your unique skill belongs here too</span>
+                            <span class="cat-thumb"><img src="./assets/images/cat-more.jpg" alt="" loading="lazy"></span><span class="cat-arrow"><svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg></span></a></li>
+                </ul>
+            </div>
+            <div class="cat-preview" data-cat-preview aria-hidden="true"><img alt="" src="./assets/images/cat-technology.jpg"></div>
+        </section>
+
+        <!-- ================= Numbers (counters) ================= -->
+        <section class="stats" aria-label="Barterly in numbers">
+            <div class="container stats-grid">
+                <div class="stat" data-fade-up><span class="stat-num"><span data-count="8">8</span></span><span class="stat-label">skill categories to explore</span></div>
+                <div class="stat" data-fade-up><span class="stat-num"><span data-count="4">4</span></span><span class="stat-label">ways to learn together</span></div>
+                <div class="stat" data-fade-up><span class="stat-num"><span data-count="3">3</span></span><span class="stat-label">ways to sign in</span></div>
+                <div class="stat" data-fade-up><span class="stat-num">₹<span data-count="0" data-count-from="999">0</span></span><span class="stat-label">to join, forever</span></div>
+            </div>
+        </section>
+
+        <!-- ================= 07 · Benefits (split screen) ================= -->
+        <section class="split" id="benefits" aria-labelledby="benefits-title">
+            <h2 class="sr-only" id="benefits-title">A better way to learn and share</h2>
+            <article class="split-half split-light">
+                <div class="split-media" data-zoom><img src="./assets/images/benefit-learners.jpg" alt="Students learning together in a college classroom" width="900" height="560" loading="lazy"></div>
+                <div class="split-copy">
+                    <p class="section-index">(07) — For learners</p>
+                    <h3 data-split>Learn from people, <em class="serif">not just pages.</em></h3>
+                    <p>Practical explanations, real questions answered, and a pace that works for you.</p>
+                    <ul class="tick-list" role="list">
+                        <li>Discover skills beyond traditional courses</li>
+                        <li>Learn through real conversations and practice</li>
+                        <li>Build confidence with peer support</li>
+                    </ul>
+                </div>
+            </article>
+            <article class="split-half split-dark">
+                <div class="split-media" data-zoom><img src="./assets/images/benefit-sharers.jpg" alt="A student sharing his work on a laptop on campus steps" width="900" height="560" loading="lazy"></div>
+                <div class="split-copy">
+                    <p class="section-index">(07) — For skill sharers</p>
+                    <h3 data-split>Turn what you know into <em class="serif">someone’s chance.</em></h3>
+                    <p>Teaching sharpens your own understanding — and builds a reputation people trust.</p>
+                    <ul class="tick-list" role="list">
+                        <li>Give your knowledge a meaningful purpose</li>
+                        <li>Improve by explaining and mentoring</li>
+                        <li>Learn new skills in return</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+
+        <!-- ================= 08 · Campus (scroll zoom + mask reveal) ================= -->
+        <section class="campus" id="campus" aria-labelledby="campus-title">
+            <div class="campus-hero" data-campus>
+                <div class="campus-frame" data-campus-frame>
+                    <img src="./assets/images/lpu-admission-block.jpg" width="980" height="654" loading="lazy" data-campus-img
+                        alt="The red-brick Admission Block at Lovely Professional University with its stepped amphitheatre">
+                </div>
+                <h2 class="campus-title" id="campus-title" data-campus-title>Made at <em class="serif">LPU.</em></h2>
+                <p class="campus-tag" data-campus-tag>Lovely Professional University · Phagwara, Punjab</p>
+            </div>
+
+            <div class="container campus-after">
+                <p class="campus-lede" data-fade-up>From the Admission Block to the sports grounds and stage nights — a campus this big is
+                    full of people with <em class="serif">something to teach.</em></p>
+                <div class="campus-tiles">
+                    <figure class="campus-tile" data-tilt="6" data-mask>
+                        <img src="./assets/images/lpu-students-walk.jpg" alt="Two students sharing an umbrella on a campus lawn" width="1280" height="853" loading="lazy">
+                        <figcaption><strong>Between classes</strong><span>Meet a partner on your way</span></figcaption>
+                    </figure>
+                    <figure class="campus-tile" data-tilt="6" data-mask>
+                        <img src="./assets/images/lpu-sports-team.jpg" alt="An LPU sports team celebrating with a trophy" width="800" height="600" loading="lazy">
+                        <figcaption><strong>Sports &amp; teams</strong><span>Coach, train and win together</span></figcaption>
+                    </figure>
+                    <figure class="campus-tile" data-tilt="6" data-mask>
+                        <img src="./assets/images/lpu-student-band.jpg" alt="Student musicians performing on stage" width="800" height="600" loading="lazy">
+                        <figcaption><strong>Music &amp; stage</strong><span>Jam, perform, pass it on</span></figcaption>
+                    </figure>
+                </div>
+                <p class="credits">
+                    Campus photos via Wikimedia Commons:
+                    <a href="https://commons.wikimedia.org/wiki/File:Admission-block-copy.jpg" target="_blank" rel="noopener noreferrer">Admission Block</a>,
+                    <a href="https://commons.wikimedia.org/wiki/File:Lpu12.jpg" target="_blank" rel="noopener noreferrer">sports team</a> and
+                    <a href="https://commons.wikimedia.org/wiki/File:Lpu2.jpg" target="_blank" rel="noopener noreferrer">student band</a> by Tanya2016;
+                    <a href="https://commons.wikimedia.org/wiki/File:LPU_punjab.jpg" target="_blank" rel="noopener noreferrer">students on campus</a> by Naveen Jalli
+                    (<a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>);
+                    <a href="https://commons.wikimedia.org/wiki/File:Lovely_Professional_University,_Jalandhar-Delhi_G.T._Road_(NH-1),_Phagwara,_Punjab_(INDIA).jpg" target="_blank" rel="noopener noreferrer">campus lawn</a> by Shalintripathi
+                    (<a href="https://creativecommons.org/licenses/by-sa/3.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 3.0</a>).
+                </p>
+            </div>
+        </section>
+
+        <!-- ================= 09 · Community ================= -->
+        <section class="community section" id="community" aria-labelledby="community-title">
+            <div class="container community-grid">
+                <div class="community-visual">
+                    <figure class="community-photo" data-mask>
+                        <img src="./assets/images/community.jpg" alt="A group of smiling college friends sitting together" width="1000" height="1100" loading="lazy" data-inner-parallax>
+                    </figure>
+                    <div class="note-card" data-float-scroll="-60">
+                        <span class="stars" aria-label="5 out of 5 stars">★★★★★</span>
+                        <p class="serif">“Patient, clear and so encouraging.”</p>
+                        <small>Feedback after every session</small>
+                    </div>
+                    <div class="sticker sticker-green sticker-static" aria-hidden="true">verified<strong>profiles</strong></div>
+                </div>
+
+                <div class="community-copy">
+                    <p class="section-index">(09) — People make the platform</p>
+                    <h2 class="section-title" id="community-title" data-split>A community where <em class="serif">everyone matters.</em></h2>
+                    <ol class="principles" role="list">
+                        <li data-fade-up><span>i.</span><div><h3>Authentic profiles</h3><p>Know who you are meeting before you meet them.</p></div></li>
+                        <li data-fade-up><span>ii.</span><div><h3>Feedback &amp; reputation</h3><p>Honest reviews recognise great teachers and keep standards high.</p></div></li>
+                        <li data-fade-up><span>iii.</span><div><h3>Respectful by default</h3><p>Clear boundaries, open communication, and tools to report problems.</p></div></li>
+                    </ol>
+                    <p class="fine-print">Community tools and verification features may vary by implementation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 10 · Stories (draggable rail) ================= -->
+        <section class="stories section" id="stories" aria-labelledby="stories-title">
+            <div class="container stories-head">
+                <div>
+                    <p class="section-index">(10) — Imagine the possibilities</p>
+                    <h2 class="section-title" id="stories-title" data-split>Small exchanges. <em class="serif">Big possibilities.</em></h2>
+                </div>
+                <p class="drag-hint" aria-hidden="true"><svg class="icon"><use href="#i-arrow-left-right"></use></svg> Drag to explore</p>
+            </div>
+
+            <div class="stories-rail" data-drag data-cursor="Drag" tabindex="0" role="region" aria-label="Stories, scroll horizontally">
+                <ul class="stories-track" role="list">
+                    <li class="story" style="--tilt:-2deg">
+                        <figure><img src="./assets/images/story-creative.jpg" alt="A vintage camera beside printed photographs" width="700" height="440" loading="lazy" draggable="false"></figure>
+                        <p class="story-swap">Photography <span>⇄</span> Web design</p>
+                        <blockquote class="serif">A photographer helps a junior build a portfolio — and gets her own website built in return.</blockquote>
+                        <footer><img src="./assets/avatars/simran.jpg" alt="" draggable="false"><span><strong>Simran</strong> Photographer</span></footer>
+                    </li>
+                    <li class="story" style="--tilt:1.5deg">
+                        <figure><img src="./assets/images/story-career.jpg" alt="A marketing strategy notebook on a desk" width="700" height="440" loading="lazy" draggable="false"></figure>
+                        <p class="story-swap">Marketing <span>⇄</span> Data skills</p>
+                        <blockquote class="serif">An MBA student teaches pitching and learns Power BI from a second-year engineer.</blockquote>
+                        <footer><img src="./assets/avatars/ravi.jpg" alt="" draggable="false"><span><strong>Ravi</strong> Marketing club lead</span></footer>
+                    </li>
+                    <li class="story" style="--tilt:-1deg">
+                        <figure><img src="./assets/images/story-everyday.jpg" alt="Fresh vegetables on a chopping board" width="700" height="440" loading="lazy" draggable="false"></figure>
+                        <p class="story-swap">Cooking <span>⇄</span> Language</p>
+                        <blockquote class="serif">A hosteller shares her mother’s recipes while practising French every Sunday evening.</blockquote>
+                        <footer><img src="./assets/avatars/meera.jpg" alt="" draggable="false"><span><strong>Meera</strong> Home cook</span></footer>
+                    </li>
+                    <li class="story" style="--tilt:2deg">
+                        <figure><img src="./assets/images/lpu-student-band.jpg" alt="Student musicians on stage" width="800" height="600" loading="lazy" draggable="false"></figure>
+                        <p class="story-swap">Guitar <span>⇄</span> Python</p>
+                        <blockquote class="serif">Two batchmates trade chords for code — and end up playing at the fest together.</blockquote>
+                        <footer><img src="./assets/avatars/kabir.jpg" alt="" draggable="false"><span><strong>Kabir</strong> B.Tech CSE</span></footer>
+                    </li>
+                    <li class="story" style="--tilt:-1.5deg">
+                        <figure><img src="./assets/images/cat-academics.jpg" alt="A student reading in a library" width="640" height="480" loading="lazy" draggable="false"></figure>
+                        <p class="story-swap">Maths <span>⇄</span> Spoken English</p>
+                        <blockquote class="serif">A topper helps a friend with calculus; the friend helps her nail campus interviews.</blockquote>
+                        <footer><img src="./assets/avatars/kavya.jpg" alt="" draggable="false"><span><strong>Kavya</strong> B.Sc Maths</span></footer>
+                    </li>
+                </ul>
+            </div>
+            <p class="container fine-print">These are illustrative examples, not verified member testimonials.</p>
+        </section>
+
+        <!-- ================= 11 · FAQ ================= -->
+        <section class="faq section" id="faq" aria-labelledby="faq-title">
+            <div class="container faq-grid">
+                <div class="faq-intro">
+                    <p class="section-index">(11) — Good questions</p>
+                    <h2 class="section-title" id="faq-title" data-split>Questions, <em class="serif">answered.</em></h2>
+                    <p class="faq-lede">New to skill exchange? Here’s what people usually ask before their first swap.</p>
+                </div>
+
+                <div class="faq-list" data-accordion>
+                    <details class="faq-item" open>
+                        <summary><span>What exactly is Barterly?</span><i aria-hidden="true"></i></summary>
+                        <div class="faq-answer"><p>A community platform where people teach skills they know and learn skills they want — directly with each other, through group sessions, or with time credits.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span>Do I need to be a professional to teach?</span><i aria-hidden="true"></i></summary>
+                        <div class="faq-answer"><p>No. Share anything you can confidently help with. Be honest about your level and agree on expectations before you begin.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span>Do I have to teach the same skill I want to learn?</span><i aria-hidden="true"></i></summary>
+                        <div class="faq-answer"><p>Not at all. Some exchanges are direct swaps; others use group learning or time credits so different skills can be traded.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span>Can I learn online and in person?</span><i aria-hidden="true"></i></summary>
+                        <div class="faq-answer"><p>Yes — video calls, campus meetups, group activities or project-based collaboration, whatever suits both people.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span>What if I’m just starting out?</span><i aria-hidden="true"></i></summary>
+                        <div class="faq-answer"><p>Everyone starts somewhere. Join open sessions first, and share a simple skill from your studies or hobbies when you feel ready.</p></div>
+                    </details>
+                    <details class="faq-item">
+                        <summary><span>Is every exchange free?</span><i aria-hidden="true"></i></summary>
+                        <div class="faq-answer"><p>The core idea is reciprocal learning, not payment. Joining Barterly is free; always check the terms of any optional services.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 12 · CTA ================= -->
+        <section class="cta" id="get-started" aria-labelledby="cta-title">
+            <div class="cta-bg" aria-hidden="true"><img src="./assets/images/lpu-campus-lawn.jpg" alt="" width="1280" height="824" loading="lazy" data-cta-img></div>
+            <div class="container cta-inner">
+                <p class="section-index">(12) — Your turn</p>
+                <h2 class="cta-title" id="cta-title" data-split>Ready for your <br>first <em class="serif">trade?</em></h2>
+                <a class="cta-circle" href="./signup.html" data-magnetic="0.45" data-cursor="Join">
+                    <span class="cta-circle-text">Join<br>free</span>
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right"></use></svg>
+                </a>
+                <p class="cta-sub">Share what you know. Learn what you love. <em class="serif">Grow together.</em></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= Footer ================= -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <p class="footer-pitch">A campus skill exchange built by students, <em class="serif">for students.</em></p>
+                    <div class="footer-social">
+                        <a class="icon-button" href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg></a>
+                        <a class="icon-button" href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"></use></svg></a>
+                        <a class="icon-button" href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"></use></svg></a>
+                        <a class="icon-button" href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><svg class="icon" aria-hidden="true"><use href="#i-x-brand"></use></svg></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Platform</h3>
+                    <ul class="footer-links" role="list">
+                        <li><a href="#how-it-works">How it works</a></li>
+                        <li><a href="#exchange-formats">Learning formats</a></li>
+                        <li><a href="#skill-categories">Skill categories</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Community</h3>
+                    <ul class="footer-links" role="list">
+                        <li><a href="#campus">Campus life</a></li>
+                        <li><a href="#community">Our principles</a></li>
+                        <li><a href="#stories">Stories</a></li>
+                        <li><a href="#exchange-model">Exchange model</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Account</h3>
+                    <ul class="footer-links" role="list">
+                        <li><a href="./signup.html">Create an account</a></li>
+                        <li><a href="./signin.html">Sign in</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="mailto:hello@barterly.example">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="footer-wordmark" aria-hidden="true" data-wordmark>Barter<em class="serif">ly</em></p>
+
+            <div class="footer-bottom">
+                <p>© <span data-year>2026</span> Barterly. Made at LPU, Phagwara.</p>
+                <a class="back-top-link" href="#home">Back to top <svg class="icon" aria-hidden="true"><use href="#i-arrow-up"></use></svg></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./js/vendor/gsap.min.js"></script>
+    <script src="./js/vendor/ScrollTrigger.min.js"></script>
+    <script src="./js/vendor/lenis.min.js"></script>
+    <script src="./js/core/storage.js"></script>
+    <script src="./js/core/utils.js"></script>
+    <script src="./js/core/auth.js"></script>
+    <script src="./js/core/motion.js"></script>
+    <script src="./js/core/navigation.js"></script>
+    <script src="./js/core/app.js"></script>
+    <script src="./js/pages/landing.js"></script>
+</body>
+
+</html>

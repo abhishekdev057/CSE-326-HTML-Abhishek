@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your Barterly account: share what you can teach, pick what you want to learn and find your match.">
+    <meta name="theme-color" content="#fafbfe">
+    <title>Create your account — Barterly</title>
+
+    <script src="./js/core/theme-init.js"></script>
+    <link rel="icon" type="image/svg+xml" href="./assets/brand/barterly-logo.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/brand/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/brand/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&display=swap">
+
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/layout.css">
+    <link rel="stylesheet" href="./css/motion.css">
+    <link rel="stylesheet" href="./css/pages/auth.css">
+</head>
+
+<body class="auth-body signup-body">
+    <script src="./js/core/icons.js"></script>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="cursor" data-cursor-root aria-hidden="true">
+        <span class="cursor-dot"></span>
+        <span class="cursor-ring"><span class="cursor-label"></span></span>
+    </div>
+    <div class="curtain" data-curtain aria-hidden="true">
+        <div class="curtain-inner">
+            <span class="preloader-mark"><img src="./assets/brand/barterly-logo.svg" alt="" width="72" height="72"></span>
+            <span class="curtain-label" data-curtain-label>Barterly</span>
+        </div>
+    </div>
+    <a class="skip-link" href="#main-content">Skip to sign-up form</a>
+
+    <div class="auth-shell signup-shell">
+        <!-- ================= Visual side: changes with each step ================= -->
+        <aside class="auth-visual signup-visual" aria-label="Sign-up progress" data-av>
+            <div class="av-spot" aria-hidden="true" data-av-spot></div>
+
+            <div class="av-top">
+                <a class="brand brand-light" href="./index.html" aria-label="Barterly home">
+                    <span class="brand-mark" aria-hidden="true"><img src="./assets/brand/barterly-logo.svg" alt="" width="40" height="40"></span>
+                    <span class="brand-name">Barter<em class="serif">ly</em></span>
+                </a>
+                <span class="av-meta"><span class="live-dot" aria-hidden="true"></span>Made at LPU, Phagwara</span>
+            </div>
+
+            <div class="sv-stage" aria-hidden="true">
+                <span class="sv-num" data-sv-num>01</span>
+                <div class="sv-photos" data-step-images>
+                    <figure class="auth-slide polaroid sv-photo is-active" style="--r:-4deg"><span class="tape"></span>
+                        <img src="./assets/images/hero-secondary.jpg" alt="" width="600" height="460"><figcaption>Your bridge to every skill</figcaption></figure>
+                    <figure class="auth-slide polaroid sv-photo" style="--r:3deg"><span class="tape tape-blue"></span>
+                        <img src="./assets/images/benefit-sharers.jpg" alt="" width="900" height="560" loading="lazy"><figcaption>Hello, it’s me</figcaption></figure>
+                    <figure class="auth-slide polaroid sv-photo" style="--r:-2deg"><span class="tape"></span>
+                        <img src="./assets/images/format-one-to-one.jpg" alt="" width="900" height="700" loading="lazy"><figcaption>Teaching = learning twice</figcaption></figure>
+                    <figure class="auth-slide polaroid sv-photo" style="--r:4deg"><span class="tape tape-blue"></span>
+                        <img src="./assets/images/benefit-learners.jpg" alt="" width="900" height="560" loading="lazy"><figcaption>Curious minds only</figcaption></figure>
+                    <figure class="auth-slide polaroid sv-photo" style="--r:-3deg"><span class="tape"></span>
+                        <img src="./assets/images/lpu-student-band.jpg" alt="" width="800" height="600" loading="lazy"><figcaption>Find your people</figcaption></figure>
+                    <figure class="auth-slide polaroid sv-photo" style="--r:2deg"><span class="tape tape-blue"></span>
+                        <img src="./assets/images/lpu-campus-lawn.jpg" alt="" width="1280" height="824" loading="lazy"><figcaption>See you on campus</figcaption></figure>
+                    <figure class="auth-slide polaroid sv-photo" style="--r:-5deg"><span class="tape"></span>
+                        <img src="./assets/images/lpu-sports-team.jpg" alt="" width="800" height="600" loading="lazy"><figcaption>Almost there!</figcaption></figure>
+                </div>
+                <div class="sticker sticker-yellow sv-sticker" data-depth="1.6">₹0<small>to join</small></div>
+                <div class="rotate-badge sv-badge" data-depth="1.2">
+                    <svg viewBox="0 0 120 120">
+                        <defs><path id="sv-badge-circle" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+                        <text><textPath href="#sv-badge-circle" textLength="286" lengthAdjust="spacing">LEARN • TEACH • GROW • REPEAT •</textPath></text>
+                    </svg>
+                    <span class="rotate-badge-mark"><img src="./assets/brand/barterly-logo.svg" alt="" width="64" height="64"></span>
+                </div>
+            </div>
+
+            <div class="signup-visual-copy">
+                <h2 data-visual-title>Your bridge to every skill</h2>
+                <p data-visual-text>Join students who teach what they know and learn what they love.</p>
+            </div>
+
+            <ol class="stepper" data-stepper>
+                    <li><button type="button" data-goto="0" aria-label="Step 1: Account"><span class="stepper-dot"></span><span class="stepper-label">Account</span></button></li>
+                    <li><button type="button" data-goto="1" aria-label="Step 2: About you"><span class="stepper-dot"></span><span class="stepper-label">About you</span></button></li>
+                    <li><button type="button" data-goto="2" aria-label="Step 3: Teach"><span class="stepper-dot"></span><span class="stepper-label">Teach</span></button></li>
+                    <li><button type="button" data-goto="3" aria-label="Step 4: Learn"><span class="stepper-dot"></span><span class="stepper-label">Learn</span></button></li>
+                    <li><button type="button" data-goto="4" aria-label="Step 5: Interests"><span class="stepper-dot"></span><span class="stepper-label">Interests</span></button></li>
+                    <li><button type="button" data-goto="5" aria-label="Step 6: Location"><span class="stepper-dot"></span><span class="stepper-label">Location</span></button></li>
+                    <li><button type="button" data-goto="6" aria-label="Step 7: Review"><span class="stepper-dot"></span><span class="stepper-label">Review</span></button></li>
+            </ol>
+
+            <p class="av-wordmark" aria-hidden="true">Barter<em class="serif">ly</em></p>
+        </aside>
+
+        <!-- ================= Wizard ================= -->
+        <main class="auth-main signup-main" id="main-content">
+            <div class="auth-topbar">
+                <a class="back-link" href="./index.html">
+                    <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg> Home
+                </a>
+                <a class="brand auth-topbar-brand" href="./index.html" aria-label="Barterly home">
+                    <span class="brand-mark" aria-hidden="true"><img src="./assets/brand/barterly-logo.svg" alt="" width="40" height="40"></span>
+                    <span class="brand-name">Barter<em class="serif">ly</em></span>
+                </a>
+                <div class="auth-topbar-actions">
+                    <span class="auth-topbar-text">Have an account? <a class="text-link" href="./signin.html">Sign in</a></span>
+                    <button class="icon-button theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark theme">
+                        <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+                        <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="signup-progress" aria-hidden="true">
+                <div class="signup-progress-bar"><span data-progress></span></div>
+                <span class="signup-progress-label" data-progress-label>Step 1 of 7</span>
+            </div>
+
+            <div class="alert alert-info signed-in-notice" data-signed-in hidden>
+                <svg class="icon" aria-hidden="true"><use href="#i-info"></use></svg>
+                <span>You are signed in as <strong data-user-name></strong>.
+                    <button class="text-link" type="button" data-sign-out>Sign out</button> to create a different account.</span>
+            </div>
+
+            <div class="draft-banner" data-draft-banner hidden>
+                <svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>
+                <span>We restored your unfinished sign-up.</span>
+                <button class="link-button" type="button" data-start-over>Start over</button>
+            </div>
+
+            <form class="signup-form" id="signup-form" novalidate data-signup-form>
+                <div class="signup-steps" data-scroll-area>
+
+                <!-- ===== Step 1: Account ===== -->
+                <section class="step is-active" data-step="0" aria-labelledby="step-0-title">
+                    <header class="step-head">
+                        <span class="step-kicker">Step 1 of 7 · Account</span>
+                        <h1 id="step-0-title" tabindex="-1">Create your <em class="serif">Barterly</em> account</h1>
+                        <p data-method-sub>Choose how you’d like to sign in. It only takes a minute.</p>
+                    </header>
+
+                    <div class="method-grid" role="radiogroup" aria-label="How do you want to sign up?" data-method-group>
+                        <button class="method-card" type="button" role="radio" aria-checked="false" data-method="google">
+                            <span class="method-radio" aria-hidden="true"></span>
+                            <span class="method-icon method-icon-google"><svg class="google-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg></span>
+                            <span class="method-text">
+                                <strong>Google</strong>
+                                <span class="method-desc">One tap with your Google email</span>
+                            </span>
+                            <span class="method-meta"><span class="method-tag">Recommended</span><span><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>~10 sec</span></span>
+                        </button>
+                        <button class="method-card" type="button" role="radio" aria-checked="false" data-method="otp">
+                            <span class="method-radio" aria-hidden="true"></span>
+                            <span class="method-icon method-icon-otp"><svg class="icon" aria-hidden="true"><use href="#i-smartphone"></use></svg></span>
+                            <span class="method-text">
+                                <strong>Mobile OTP</strong>
+                                <span class="method-desc">A 6-digit code to your phone</span>
+                            </span>
+                            <span class="method-meta"><span class="method-tag method-tag-quiet">No password</span><span><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>~30 sec</span></span>
+                        </button>
+                        <button class="method-card" type="button" role="radio" aria-checked="false" data-method="password">
+                            <span class="method-radio" aria-hidden="true"></span>
+                            <span class="method-icon method-icon-key"><svg class="icon" aria-hidden="true"><use href="#i-key"></use></svg></span>
+                            <span class="method-text">
+                                <strong>Username</strong>
+                                <span class="method-desc">Classic username &amp; password</span>
+                            </span>
+                            <span class="method-meta"><span class="method-tag method-tag-quiet">Classic</span><span><svg class="icon" aria-hidden="true"><use href="#i-clock"></use></svg>~1 min</span></span>
+                        </button>
+                    </div>
+                    <p class="field-error method-error" id="method-error" hidden></p>
+
+                    <!-- Google -->
+                    <div class="method-panel form-stack" data-method-panel="google" hidden>
+                        <div class="google-slot" data-google-slot>
+                            <button class="google-button" type="button" data-google-demo>
+                                <svg class="google-logo" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3C33.7 32.7 29.2 36 24 36c-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.4-.4-3.5z"/><path fill="#FF3D00" d="m6.3 14.7 6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.8 1.2 7.9 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-8l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C37 39.2 44 34 44 24c0-1.3-.1-2.4-.4-3.5z"/></svg>
+                                Sign up with Google
+                            </button>
+                        </div>
+                        <p class="field-error" id="google-error" hidden></p>
+
+                        <div class="connected-card" data-google-connected hidden>
+                            <span class="user-avatar user-avatar-lg" data-google-avatar></span>
+                            <div>
+                                <strong data-google-name></strong>
+                                <span data-google-email></span>
+                            </div>
+                            <span class="badge badge-success"><svg class="icon" aria-hidden="true"><use href="#i-badge-check"></use></svg> Connected</span>
+                            <button class="link-button" type="button" data-google-change>Change</button>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-label" for="su-phone-google">Mobile number <small>So learning partners can reach you</small></label>
+                            <div class="input-wrap">
+                                <span class="input-prefix">🇮🇳 +91</span>
+                                <input class="input" id="su-phone-google" type="tel" inputmode="numeric" autocomplete="tel-national"
+                                    maxlength="11" placeholder="98765 43210" aria-describedby="su-phone-google-error" data-phone>
+                            </div>
+                            <p class="field-error" id="su-phone-google-error" hidden></p>
+                        </div>
+                    </div>
+
+                    <!-- Mobile OTP -->
+                    <div class="method-panel form-stack" data-method-panel="otp" hidden>
+                        <div class="field">
+                            <label class="field-label" for="su-phone-otp">Mobile number</label>
+                            <div class="input-inline">
+                                <div class="input-wrap">
+                                    <span class="input-prefix">🇮🇳 +91</span>
+                                    <input class="input" id="su-phone-otp" type="tel" inputmode="numeric" autocomplete="tel-national"
+                                        maxlength="11" placeholder="98765 43210" aria-describedby="su-phone-otp-error" data-phone>
+                                    <span class="input-status" data-phone-verified hidden><svg class="icon" aria-hidden="true"><use href="#i-badge-check"></use></svg></span>
+                                </div>
+                                <button class="button button-secondary" type="button" data-send-otp><span class="button-label">Send OTP</span></button>
+                            </div>
+                            <p class="field-error" id="su-phone-otp-error" hidden></p>
+                        </div>
+
+                        <div class="otp-box" data-otp-box hidden>
+                            <p class="field-label">Enter the 6-digit code sent to <span data-otp-target></span></p>
+                            <div class="otp-inputs" data-otp-inputs role="group" aria-label="One-time code"></div>
+                            <p class="field-error" data-otp-error hidden></p>
+                            <div class="otp-demo" data-otp-demo hidden></div>
+                            <div class="otp-meta">
+                                <span data-otp-timer></span>
+                                <button class="link-button" type="button" data-resend disabled>Resend code</button>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success" data-otp-verified hidden>
+                            <svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg>
+                            <span>Number verified: <strong data-otp-verified-number></strong></span>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-label" for="su-email-otp">Email address</label>
+                            <div class="input-wrap">
+                                <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+                                <input class="input" id="su-email-otp" type="email" autocomplete="email" placeholder="you@gmail.com"
+                                    aria-describedby="su-email-otp-error">
+                            </div>
+                            <p class="field-error" id="su-email-otp-error" hidden></p>
+                        </div>
+                    </div>
+
+                    <!-- Username & password -->
+                    <div class="method-panel form-stack" data-method-panel="password" hidden>
+                        <div class="form-row">
+                            <div class="field">
+                                <label class="field-label" for="su-username">Username</label>
+                                <div class="input-wrap">
+                                    <svg class="icon" aria-hidden="true"><use href="#i-at-sign"></use></svg>
+                                    <input class="input" id="su-username" autocomplete="username" autocapitalize="none" spellcheck="false"
+                                        maxlength="20" placeholder="aarav_k · a–z, 0–9, _" aria-describedby="su-username-hint su-username-error">
+                                    <span class="input-status" data-username-ok hidden><svg class="icon" aria-hidden="true"><use href="#i-check-circle"></use></svg></span>
+                                </div>
+                                <p class="sr-only" id="su-username-hint">3 to 20 characters: lowercase letters, numbers and underscore</p>
+                                <p class="field-error" id="su-username-error" hidden></p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="su-email">Email address</label>
+                                <div class="input-wrap">
+                                    <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg>
+                                    <input class="input" id="su-email" type="email" autocomplete="email" placeholder="you@gmail.com"
+                                        aria-describedby="su-email-error">
+                                </div>
+                                <p class="field-error" id="su-email-error" hidden></p>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-label" for="su-phone-password">Mobile number</label>
+                            <div class="input-wrap">
+                                <span class="input-prefix">🇮🇳 +91</span>
+                                <input class="input" id="su-phone-password" type="tel" inputmode="numeric" autocomplete="tel-national"
+                                    maxlength="11" placeholder="98765 43210" aria-describedby="su-phone-password-error" data-phone>
+                            </div>
+                            <p class="field-error" id="su-phone-password-error" hidden></p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field">
+                                <label class="field-label" for="su-password">Password</label>
+                                <div class="input-wrap has-action">
+                                    <svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg>
+                                    <input class="input" id="su-password" type="password" autocomplete="new-password"
+                                        placeholder="Create a password" aria-describedby="su-password-error">
+                                    <button class="input-action" type="button" aria-label="Show password" data-toggle-password="su-password">
+                                        <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg>
+                                    </button>
+                                </div>
+                                <p class="field-error" id="su-password-error" hidden></p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="su-confirm">Confirm password</label>
+                                <div class="input-wrap has-action">
+                                    <svg class="icon" aria-hidden="true"><use href="#i-lock"></use></svg>
+                                    <input class="input" id="su-confirm" type="password" autocomplete="new-password"
+                                        placeholder="Type it again" aria-describedby="su-confirm-error">
+                                    <button class="input-action" type="button" aria-label="Show password" data-toggle-password="su-confirm">
+                                        <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg>
+                                    </button>
+                                </div>
+                                <p class="field-error" id="su-confirm-error" hidden></p>
+                            </div>
+                        </div>
+
+                        <div class="strength" data-strength>
+                            <div class="strength-bar" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                            <span class="strength-label" data-strength-label aria-live="polite">Password strength</span>
+                            <ul class="strength-rules" role="list">
+                                <li data-rule="length">8+ characters</li>
+                                <li data-rule="upper">Upper &amp; lower case</li>
+                                <li data-rule="number">A number</li>
+                                <li data-rule="symbol">A symbol</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== Step 2: About you ===== -->
+                <section class="step" data-step="1" aria-labelledby="step-1-title" hidden>
+                    <header class="step-head">
+                        <span class="step-kicker">Step 2 of 7 · About you</span>
+                        <h1 id="step-1-title" tabindex="-1">Tell us about <em class="serif">yourself</em></h1>
+                        <p>This is what learning partners see on your profile.</p>
+                    </header>
+
+                    <div class="photo-picker">
+                        <span class="photo-preview" data-photo-preview><span data-photo-initials>?</span></span>
+                        <div class="photo-actions">
+                            <label class="button button-secondary button-sm" for="su-photo">
+                                <svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg> Upload photo
+                            </label>
+                            <input class="sr-only" id="su-photo" type="file" accept="image/*" data-photo-input>
+                            <button class="link-button" type="button" data-photo-remove hidden>Remove</button>
+                            <p class="field-hint">Optional · a clear face photo builds trust</p>
+                        </div>
+                    </div>
+
+                    <div class="form-stack">
+                        <div class="field">
+                            <label class="field-label" for="su-name">Full name</label>
+                            <input class="input" id="su-name" autocomplete="name" placeholder="e.g. Ananya Sharma" maxlength="60"
+                                aria-describedby="su-name-error">
+                            <p class="field-error" id="su-name-error" hidden></p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field">
+                                <label class="field-label" for="su-dob">Date of birth</label>
+                                <input class="input" id="su-dob" type="date" autocomplete="bday" aria-describedby="su-dob-error">
+                                <p class="field-error" id="su-dob-error" hidden></p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="su-gender">Gender <small>Optional</small></label>
+                                <select class="select" id="su-gender">
+                                    <option value="">Prefer not to say</option>
+                                    <option>Female</option>
+                                    <option>Male</option>
+                                    <option>Non-binary</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <span class="field-label" id="role-label">I am a…</span>
+                            <div class="choice-grid choice-grid-4" role="radiogroup" aria-labelledby="role-label" data-choice="role" data-single>
+                                <button class="choice" type="button" role="radio" aria-checked="false" data-value="Student"><svg class="icon" aria-hidden="true"><use href="#i-graduation"></use></svg>Student</button>
+                                <button class="choice" type="button" role="radio" aria-checked="false" data-value="Professional"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>Professional</button>
+                                <button class="choice" type="button" role="radio" aria-checked="false" data-value="Educator"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>Educator</button>
+                                <button class="choice" type="button" role="radio" aria-checked="false" data-value="Other"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>Other</button>
+                            </div>
+                            <p class="field-error" id="role-error" hidden></p>
+                        </div>
+
+                        <div class="form-stack reveal-group" data-role-fields="Student" hidden>
+                            <div class="field">
+                                <label class="field-label" for="su-institution">College / university</label>
+                                <input class="input" id="su-institution" list="institutions" placeholder="Lovely Professional University"
+                                    aria-describedby="su-institution-error">
+                                <datalist id="institutions">
+                                    <option value="Lovely Professional University"></option>
+                                    <option value="Chandigarh University"></option>
+                                    <option value="Thapar Institute of Engineering and Technology"></option>
+                                    <option value="Punjab University"></option>
+                                    <option value="Guru Nanak Dev University"></option>
+                                    <option value="IIT Ropar"></option>
+                                    <option value="NIT Jalandhar"></option>
+                                </datalist>
+                                <p class="field-error" id="su-institution-error" hidden></p>
+                            </div>
+                            <div class="form-row">
+                                <div class="field">
+                                    <label class="field-label" for="su-program">Programme</label>
+                                    <select class="select" id="su-program" aria-describedby="su-program-error">
+                                        <option value="">Select</option>
+                                        <option>B.Tech</option><option>BCA</option><option>B.Sc</option><option>B.Com</option>
+                                        <option>BBA</option><option>B.Des</option><option>BA</option><option>B.Pharm</option>
+                                        <option>M.Tech</option><option>MCA</option><option>MBA</option><option>M.Sc</option>
+                                        <option>PhD</option><option>Diploma</option><option>Other</option>
+                                    </select>
+                                    <p class="field-error" id="su-program-error" hidden></p>
+                                </div>
+                                <div class="field">
+                                    <label class="field-label" for="su-year">Year</label>
+                                    <select class="select" id="su-year" aria-describedby="su-year-error">
+                                        <option value="">Select</option>
+                                        <option>1st year</option><option>2nd year</option><option>3rd year</option>
+                                        <option>4th year</option><option>5th year</option><option>Graduated</option>
+                                    </select>
+                                    <p class="field-error" id="su-year-error" hidden></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row reveal-group" data-role-fields="Professional Educator Other" hidden>
+                            <div class="field">
+                                <label class="field-label" for="su-org">Organisation <small>Optional</small></label>
+                                <input class="input" id="su-org" autocomplete="organization" placeholder="Company, school or institute">
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="su-title">Role / title <small>Optional</small></label>
+                                <input class="input" id="su-title" autocomplete="organization-title" placeholder="e.g. Software engineer">
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-label" for="su-bio">Short bio <small><span data-bio-count>0</span>/200</small></label>
+                            <textarea class="textarea" id="su-bio" maxlength="200" rows="3"
+                                placeholder="e.g. CSE student who loves building web apps and wants to get better at public speaking."></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== Step 3: Skills you can teach ===== -->
+                <section class="step" data-step="2" aria-labelledby="step-2-title" hidden>
+                    <header class="step-head">
+                        <span class="step-kicker">Step 3 of 7 · Teach</span>
+                        <h1 id="step-2-title" tabindex="-1">What can you <em class="serif">teach?</em></h1>
+                        <p>Add skills you’re confident sharing and set your level for each one.</p>
+                    </header>
+
+                    <div class="skill-picker" data-skill-picker="teach">
+                        <div class="field">
+                            <label class="field-label" for="su-teach-input">Add a skill</label>
+                            <div class="combo">
+                                <div class="input-wrap">
+                                    <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+                                    <input class="input" id="su-teach-input" autocomplete="off" placeholder="Type a skill and press Enter — e.g. Python"
+                                        role="combobox" aria-expanded="false" aria-controls="teach-suggestions" aria-autocomplete="list"
+                                        aria-describedby="teach-error">
+                                </div>
+                                <ul class="combo-list" id="teach-suggestions" role="listbox" hidden></ul>
+                            </div>
+                        </div>
+                        <div class="quick-chips">
+                            <span>Popular:</span>
+                            <div data-quick></div>
+                        </div>
+                        <ul class="skill-list" role="list" data-skill-list></ul>
+                        <p class="skill-empty" data-skill-empty>
+                            <svg class="icon" aria-hidden="true"><use href="#i-lightbulb"></use></svg>
+                            Coding, a language, an instrument, cooking, exam prep — everything counts.
+                        </p>
+                        <p class="field-error" id="teach-error" hidden></p>
+                    </div>
+
+                    <label class="checkbox step-checkbox">
+                        <input type="checkbox" id="su-no-teach">
+                        <span>I’m just starting out — I’ll add skills to teach later.</span>
+                    </label>
+                </section>
+
+                <!-- ===== Step 4: Skills you want to learn ===== -->
+                <section class="step" data-step="3" aria-labelledby="step-3-title" hidden>
+                    <header class="step-head">
+                        <span class="step-kicker">Step 4 of 7 · Learn</span>
+                        <h1 id="step-3-title" tabindex="-1">What do you want to <em class="serif">learn?</em></h1>
+                        <p>We’ll use this to match you with people who can teach it.</p>
+                    </header>
+
+                    <div class="skill-picker" data-skill-picker="learn">
+                        <div class="field">
+                            <label class="field-label" for="su-learn-input">Add a skill</label>
+                            <div class="combo">
+                                <div class="input-wrap">
+                                    <svg class="icon" aria-hidden="true"><use href="#i-search"></use></svg>
+                                    <input class="input" id="su-learn-input" autocomplete="off" placeholder="e.g. Guitar, Spoken English, Figma"
+                                        role="combobox" aria-expanded="false" aria-controls="learn-suggestions" aria-autocomplete="list"
+                                        aria-describedby="learn-error">
+                                </div>
+                                <ul class="combo-list" id="learn-suggestions" role="listbox" hidden></ul>
+                            </div>
+                        </div>
+                        <div class="quick-chips">
+                            <span>Popular:</span>
+                            <div data-quick></div>
+                        </div>
+                        <ul class="skill-list" role="list" data-skill-list></ul>
+                        <p class="skill-empty" data-skill-empty>
+                            <svg class="icon" aria-hidden="true"><use href="#i-target"></use></svg>
+                            Add at least one skill you’d like to pick up.
+                        </p>
+                        <p class="field-error" id="learn-error" hidden></p>
+                    </div>
+
+                    <div class="field">
+                        <span class="field-label" id="goal-label">Main goal</span>
+                        <div class="choice-grid" role="radiogroup" aria-labelledby="goal-label" data-choice="goal" data-single>
+                            <button class="choice" type="button" role="radio" aria-checked="false" data-value="Career growth"><svg class="icon" aria-hidden="true"><use href="#i-trending-up"></use></svg>Career growth</button>
+                            <button class="choice" type="button" role="radio" aria-checked="false" data-value="Placement prep"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>Placement prep</button>
+                            <button class="choice" type="button" role="radio" aria-checked="false" data-value="Academics"><svg class="icon" aria-hidden="true"><use href="#i-book"></use></svg>Academics</button>
+                            <button class="choice" type="button" role="radio" aria-checked="false" data-value="Hobby"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>Hobby</button>
+                            <button class="choice" type="button" role="radio" aria-checked="false" data-value="Side project"><svg class="icon" aria-hidden="true"><use href="#i-zap"></use></svg>Side project</button>
+                        </div>
+                        <p class="field-error" id="goal-error" hidden></p>
+                    </div>
+                </section>
+
+                <!-- ===== Step 5: Interests & availability ===== -->
+                <section class="step" data-step="4" aria-labelledby="step-4-title" hidden>
+                    <header class="step-head">
+                        <span class="step-kicker">Step 5 of 7 · Interests</span>
+                        <h1 id="step-4-title" tabindex="-1">Your interests &amp; availability</h1>
+                        <p>Pick what excites you and when you’re free — we’ll do the matching.</p>
+                    </header>
+
+                    <div class="form-stack">
+                        <div class="field">
+                            <span class="field-label" id="interests-label">Interests <small>Pick at least 3</small></span>
+                            <div class="chip-grid" role="group" aria-labelledby="interests-label" data-choice="interests">
+                                <button class="choice" type="button" aria-pressed="false" data-value="Technology"><svg class="icon" aria-hidden="true"><use href="#i-code"></use></svg>Technology</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Design"><svg class="icon" aria-hidden="true"><use href="#i-pen"></use></svg>Design</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Music"><svg class="icon" aria-hidden="true"><use href="#i-music"></use></svg>Music</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Languages"><svg class="icon" aria-hidden="true"><use href="#i-languages"></use></svg>Languages</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Business"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"></use></svg>Business</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Finance"><svg class="icon" aria-hidden="true"><use href="#i-wallet"></use></svg>Finance</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Photography"><svg class="icon" aria-hidden="true"><use href="#i-camera"></use></svg>Photography</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Public speaking"><svg class="icon" aria-hidden="true"><use href="#i-mic"></use></svg>Public speaking</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Cooking"><svg class="icon" aria-hidden="true"><use href="#i-utensils"></use></svg>Cooking</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Fitness"><svg class="icon" aria-hidden="true"><use href="#i-dumbbell"></use></svg>Fitness</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Gaming"><svg class="icon" aria-hidden="true"><use href="#i-gamepad"></use></svg>Gaming</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Travel"><svg class="icon" aria-hidden="true"><use href="#i-plane"></use></svg>Travel</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Data &amp; AI"><svg class="icon" aria-hidden="true"><use href="#i-bar-chart"></use></svg>Data &amp; AI</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Writing"><svg class="icon" aria-hidden="true"><use href="#i-pen-line"></use></svg>Writing</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Wellness"><svg class="icon" aria-hidden="true"><use href="#i-leaf"></use></svg>Wellness</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Social impact"><svg class="icon" aria-hidden="true"><use href="#i-heart"></use></svg>Social impact</button>
+                            </div>
+                            <p class="field-error" id="interests-error" hidden></p>
+                        </div>
+
+                        <div class="field">
+                            <span class="field-label" id="formats-label">How do you like to learn?</span>
+                            <div class="chip-grid" role="group" aria-labelledby="formats-label" data-choice="formats">
+                                <button class="choice" type="button" aria-pressed="false" data-value="One-to-one"><svg class="icon" aria-hidden="true"><use href="#i-user"></use></svg>One-to-one</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Small group"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Small group</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Online"><svg class="icon" aria-hidden="true"><use href="#i-video"></use></svg>Online</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="In person"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg>In person</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Project-based"><svg class="icon" aria-hidden="true"><use href="#i-folder"></use></svg>Project-based</button>
+                            </div>
+                            <p class="field-error" id="formats-error" hidden></p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="field">
+                                <span class="field-label" id="days-label">Days you’re free</span>
+                                <div class="day-grid" role="group" aria-labelledby="days-label" data-choice="days">
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Mon">Mon</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Tue">Tue</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Wed">Wed</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Thu">Thu</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Fri">Fri</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Sat">Sat</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Sun">Sun</button>
+                                </div>
+                                <p class="field-error" id="days-error" hidden></p>
+                            </div>
+                            <div class="field">
+                                <span class="field-label" id="times-label">Preferred time</span>
+                                <div class="chip-grid chip-grid-2" role="group" aria-labelledby="times-label" data-choice="times">
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Morning">Morning</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Afternoon">Afternoon</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Evening">Evening</button>
+                                    <button class="choice" type="button" aria-pressed="false" data-value="Night">Night</button>
+                                </div>
+                                <p class="field-error" id="times-error" hidden></p>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <span class="field-label" id="languages-label">Languages you speak</span>
+                            <div class="chip-grid" role="group" aria-labelledby="languages-label" data-choice="languages">
+                                <button class="choice" type="button" aria-pressed="false" data-value="English">English</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Hindi">Hindi</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Punjabi">Punjabi</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Bengali">Bengali</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Tamil">Tamil</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Telugu">Telugu</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Marathi">Marathi</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Gujarati">Gujarati</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Kannada">Kannada</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Malayalam">Malayalam</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Urdu">Urdu</button>
+                                <button class="choice" type="button" aria-pressed="false" data-value="Odia">Odia</button>
+                            </div>
+                            <p class="field-error" id="languages-error" hidden></p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== Step 6: Location ===== -->
+                <section class="step" data-step="5" aria-labelledby="step-5-title" hidden>
+                    <header class="step-head">
+                        <span class="step-kicker">Step 6 of 7 · Location</span>
+                        <h1 id="step-5-title" tabindex="-1">Where are you based?</h1>
+                        <p>Helps us suggest in-person sessions nearby. Only your city is shown to others.</p>
+                    </header>
+
+                    <div class="form-stack">
+                        <label class="toggle-card">
+                            <span class="icon-tile"><svg class="icon" aria-hidden="true"><use href="#i-building"></use></svg></span>
+                            <span class="toggle-copy">
+                                <strong>I live on the LPU campus</strong>
+                                <small>We’ll fill in the campus address for you.</small>
+                            </span>
+                            <input class="switch" type="checkbox" id="su-on-campus" role="switch">
+                        </label>
+
+                        <div class="field" data-campus-only hidden>
+                            <label class="field-label" for="su-hostel">Hostel / block</label>
+                            <input class="input" id="su-hostel" placeholder="e.g. BH-3, Room 412" aria-describedby="su-hostel-error">
+                            <p class="field-error" id="su-hostel-error" hidden></p>
+                        </div>
+
+                        <div class="field">
+                            <label class="field-label" for="su-line1">Address line 1</label>
+                            <input class="input" id="su-line1" autocomplete="address-line1" placeholder="House no., street, area"
+                                aria-describedby="su-line1-error">
+                            <p class="field-error" id="su-line1-error" hidden></p>
+                        </div>
+                        <div class="field">
+                            <label class="field-label" for="su-line2">Address line 2 <small>Optional</small></label>
+                            <input class="input" id="su-line2" autocomplete="address-line2" placeholder="Landmark, locality">
+                        </div>
+                        <div class="form-row form-row-3">
+                            <div class="field">
+                                <label class="field-label" for="su-city">City</label>
+                                <input class="input" id="su-city" autocomplete="address-level2" placeholder="Phagwara" aria-describedby="su-city-error">
+                                <p class="field-error" id="su-city-error" hidden></p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="su-state">State</label>
+                                <select class="select" id="su-state" autocomplete="address-level1" aria-describedby="su-state-error" data-states></select>
+                                <p class="field-error" id="su-state-error" hidden></p>
+                            </div>
+                            <div class="field">
+                                <label class="field-label" for="su-pincode">PIN code</label>
+                                <input class="input" id="su-pincode" inputmode="numeric" autocomplete="postal-code" maxlength="6"
+                                    placeholder="144411" aria-describedby="su-pincode-error">
+                                <p class="field-error" id="su-pincode-error" hidden></p>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <span class="field-label" id="visibility-label">Who can see your location?</span>
+                            <div class="choice-grid" role="radiogroup" aria-labelledby="visibility-label" data-choice="visibility" data-single>
+                                <button class="choice" type="button" role="radio" aria-checked="false" data-value="City only"><svg class="icon" aria-hidden="true"><use href="#i-map-pin"></use></svg>City only</button>
+                                <button class="choice" type="button" role="radio" aria-checked="false" data-value="Matches only"><svg class="icon" aria-hidden="true"><use href="#i-users"></use></svg>Matches only</button>
+                                <button class="choice" type="button" role="radio" aria-checked="false" data-value="Hidden"><svg class="icon" aria-hidden="true"><use href="#i-eye-off"></use></svg>Hidden</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ===== Step 7: Review ===== -->
+                <section class="step" data-step="6" aria-labelledby="step-6-title" hidden>
+                    <header class="step-head">
+                        <span class="step-kicker">Step 7 of 7 · Review</span>
+                        <h1 id="step-6-title" tabindex="-1">Looks <em class="serif">good?</em></h1>
+                        <p>Check your details. You can edit any section before creating your account.</p>
+                    </header>
+
+                    <div class="review" data-review></div>
+
+                    <label class="checkbox step-checkbox">
+                        <input type="checkbox" id="su-terms" aria-describedby="su-terms-error">
+                        <span>I agree to be respectful, honest about my skill level, and to follow the Barterly community guidelines.</span>
+                    </label>
+                    <p class="field-error" id="su-terms-error" hidden></p>
+                </section>
+
+                    <p class="auth-footnote">
+                        <svg class="icon" aria-hidden="true"><use href="#i-shield-check"></use></svg>
+                    Prototype mode: your details are saved only in this browser.
+                    <span data-google-mode-note></span>
+                </p>
+                </div>
+
+                <!-- ===== Actions ===== -->
+                <div class="step-actions" data-step-actions>
+                    <button class="switch-method" type="button" data-switch-method hidden aria-label="Switch sign-up method">
+                        <span class="switch-method-icon" data-switch-icon aria-hidden="true"></span>
+                        <span class="switch-method-text"><small>Signing up with</small><strong data-switch-label></strong></span>
+                        <span class="switch-method-cta"><svg class="icon" aria-hidden="true"><use href="#i-refresh"></use></svg>Switch</span>
+                    </button>
+                    <button class="button button-ghost" type="button" data-back hidden>
+                        <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg> Back
+                    </button>
+                    <button class="button button-primary button-lg" type="submit" data-next>
+                        <span class="button-label">Continue</span>
+                        <svg class="icon icon-shift" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+                    </button>
+                </div>
+            </form>
+
+            <!-- ===== Success ===== -->
+            <section class="signup-success" data-success hidden aria-labelledby="success-title">
+                <div class="success-hero">
+                    <span class="user-avatar success-avatar" data-success-avatar></span>
+                    <span class="success-burst" aria-hidden="true">
+                        <svg class="icon" aria-hidden="true"><use href="#i-check"></use></svg>
+                    </span>
+                </div>
+                <h1 id="success-title" tabindex="-1">Welcome to Barterly, <span data-success-name></span>!</h1>
+                <p data-success-text></p>
+                <div class="success-actions">
+                    <a class="button button-primary button-lg" href="./dashboard.html">Open your dashboard
+                        <svg class="icon icon-shift" aria-hidden="true"><use href="#i-arrow-right"></use></svg></a>
+                    <a class="button button-secondary button-lg" href="./dashboard.html#discover">Find matches</a>
+                </div>
+            </section>
+
+
+        </main>
+    </div>
+
+    <script src="./js/vendor/gsap.min.js"></script>
+    <script src="./js/core/storage.js"></script>
+    <script src="./js/core/utils.js"></script>
+    <script src="./js/core/auth.js"></script>
+    <script src="./js/core/motion.js"></script>
+    <script src="./js/core/app.js"></script>
+    <script src="./js/pages/auth-shared.js"></script>
+    <script src="./js/pages/signup.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+/* ==========================================================================
+   Barterly — Layout
+   Container, sections, floating header + full-screen mobile menu, footer.
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+}
+
+.section-index {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  font-weight: 700;
+}
+
+.section-title .serif {
+  color: var(--primary-text);
+}
+
+/* ---------- Floating header ---------- */
+.site-header {
+  position: fixed;
+  top: 14px;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-inline: var(--gutter);
+  transition: transform 500ms var(--ease-out-expo), top 400ms var(--ease);
+  pointer-events: none;
+}
+
+.site-header.is-hidden {
+  transform: translateY(calc(-100% - 24px));
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: var(--container);
+  height: 64px;
+  margin-inline: auto;
+  padding: 0 10px 0 18px;
+  border: 1px solid transparent;
+  border-radius: var(--r-full);
+  pointer-events: auto;
+  transition: background-color var(--t-med) ease, border-color var(--t-med) ease, box-shadow var(--t-med) ease,
+    height 400ms var(--ease), max-width 500ms var(--ease-out-expo);
+}
+
+.site-header.is-scrolled .header-inner,
+.nav-open .site-header .header-inner {
+  height: 58px;
+  max-width: 1080px;
+  border-color: var(--border);
+  background: var(--header-bg);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  backdrop-filter: blur(18px) saturate(160%);
+  box-shadow: var(--shadow-md);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* Logo sits on a soft translucent "blob" so it reads on cream, dark and photos */
+.brand-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  isolation: isolate;
+}
+
+.brand-mark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 46% 54% 58% 42% / 52% 44% 56% 48%;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0) 60%),
+    linear-gradient(135deg, rgba(76, 201, 255, 0.28), rgba(200, 107, 255, 0.28));
+  border: 1px solid rgba(106, 69, 245, 0.22);
+  box-shadow: 0 8px 22px -10px rgba(90, 60, 220, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  transform: rotate(-8deg);
+  transition: transform 700ms var(--ease-out-expo), border-radius 700ms var(--ease-out-expo);
+}
+
+:root[data-theme="dark"] .brand-mark::before,
+.brand-light .brand-mark::before {
+  background:
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 60%),
+    linear-gradient(135deg, rgba(76, 201, 255, 0.22), rgba(200, 107, 255, 0.26));
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 22px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.brand:hover .brand-mark::before {
+  border-radius: 56% 44% 42% 58% / 44% 56% 44% 56%;
+  transform: rotate(12deg) scale(1.06);
+}
+
+.brand-mark img {
+  width: 82%;
+  height: 82%;
+  transition: transform 600ms var(--ease-out-expo);
+}
+
+.brand:hover .brand-mark img {
+  transform: rotate(-6deg) scale(1.04);
+}
+
+.brand-name .serif {
+  margin-left: 1px;
+  color: var(--primary-text);
+  font-size: 1.12em;
+}
+
+.primary-nav {
+  margin-left: auto;
+}
+
+.nav-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 8px 12px;
+  color: var(--text-2);
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color var(--t-fast) ease;
+}
+
+.nav-num {
+  display: none;
+}
+
+.nav-link:hover,
+.nav-link.is-active {
+  color: var(--text);
+}
+
+/* Animated underline that slides to the hovered / active link */
+.nav-indicator {
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  height: 2px;
+  width: var(--ind-w, 0);
+  border-radius: 2px;
+  background: var(--primary);
+  transform: translateX(var(--ind-x, 0));
+  opacity: var(--ind-o, 0);
+  transition: transform 450ms var(--ease-out-expo), width 450ms var(--ease-out-expo), opacity 200ms ease;
+  pointer-events: none;
+}
+
+.nav-mobile-footer,
+.nav-mobile-note {
+  display: none;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.header-login {
+  padding: 8px 12px;
+  color: var(--text-2);
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.header-login:hover {
+  color: var(--text);
+}
+
+/* Morphing hamburger */
+.burger {
+  position: relative;
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+.burger span {
+  position: absolute;
+  left: 13px;
+  right: 13px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--paper);
+  transition: transform 450ms var(--ease-out-expo), top 450ms var(--ease-out-expo);
+}
+
+.burger span:first-child {
+  top: 17px;
+}
+
+.burger span:last-child {
+  top: 25px;
+}
+
+.nav-open .burger span:first-child {
+  top: 21px;
+  transform: rotate(45deg);
+}
+
+.nav-open .burger span:last-child {
+  top: 21px;
+  transform: rotate(-45deg);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  padding-top: clamp(72px, 9vw, 120px);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.site-footer .icon-button {
+  border-color: color-mix(in srgb, var(--paper) 20%, transparent);
+  background: transparent;
+  color: var(--paper);
+}
+
+.site-footer .icon-button:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 48px;
+}
+
+.footer-pitch {
+  max-width: 340px;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.footer-pitch .serif {
+  color: var(--primary);
+}
+
+.footer-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.footer-col h3 {
+  margin-bottom: 18px;
+  color: color-mix(in srgb, var(--paper) 55%, transparent);
+  font-family: var(--font-sans);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-links {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links a {
+  position: relative;
+  color: var(--paper);
+  font-weight: 500;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 400ms var(--ease-out-expo);
+}
+
+.footer-links a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.footer-wordmark {
+  margin: clamp(48px, 7vw, 96px) 0 -0.08em;
+  font-family: var(--font-display);
+  font-size: clamp(4.5rem, 19vw, 19rem);
+  font-weight: 800;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
+  color: var(--paper);
+  user-select: none;
+}
+
+.footer-wordmark .serif {
+  color: var(--primary);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 22px 28px;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 15%, transparent);
+  color: color-mix(in srgb, var(--paper) 60%, transparent);
+  font-size: var(--fs-sm);
+}
+
+.back-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.back-top-link .icon {
+  transition: transform 400ms var(--ease);
+}
+
+.back-top-link:hover .icon {
+  transform: translateY(-4px);
+}
